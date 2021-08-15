@@ -1,0 +1,142 @@
+syntax = "proto3";
+
+option go_package = "./product";
+import "validate/validate.proto";
+
+service Product {
+  rpc GetProductList (GetProductListReq)returns (GetProductListReply){}
+  rpc CreateProduct (CreateProductReq)returns (CreateProductReply){}
+  rpc UpdateProduct (UpdateProductReq)returns (UpdateProductReply){}
+  rpc DeleteProduct (DeleteProductReq)returns (DeleteProductReply){}
+  rpc ListingProduct (ListingProductReq)returns (ListingProductReply){}
+  rpc DeListingProduct (DeListingProductReq)returns (DeListingProductReply){}
+}
+
+
+enum Code {
+  NOKnow = 0;
+  Success = 200;
+  GetProductErr = 10000;
+  CreateProductErr = 10001;
+  UpdateProductErr = 10002;
+  DeleteProductErr = 10003;
+  ListingProductErr = 10004;
+  DeListingProductErr = 10005;
+
+}
+
+message ProductSku {
+  uint64 id = 1;
+  string title = 2 [(validate.rules).string = {min_len:5,max_len:30}];
+  uint32 price = 4 [(validate.rules).uint32.lte = 99999999];
+  uint32 stock = 5 [(validate.rules).uint32 = {gte:1,lte:999}];
+  uint64 product_id = 6;
+  int64 created_at = 7;
+}
+
+
+
+message ProductEntity {
+  int64 id = 1;
+  string title = 2 [(validate.rules).string = {min_len:5,max_len:30}];
+  string description = 3[(validate.rules).string = {max_len:299}];
+  string image = 4[(validate.rules).string = {max_len:199}];
+  uint32 on_sale = 5 [(validate.rules).uint32 = {gte:1,lte:2}];
+  uint32 sold_count = 6;
+  uint32 review_count = 7;
+  uint32 price = 8 [(validate.rules).uint32.lte = 99999999];
+  int64 created_at = 9;
+  int64 updated_at = 10;
+  repeated ProductSku skus = 11[(validate.rules).repeated.min_items = 1];
+}
+
+
+
+
+
+message GetProductListReq {
+  int64 start_create_time = 1;
+  int64 end_create_time = 2;
+  int64 page_size = 3;
+  int64 page = 4;
+}
+
+
+message GetProductListReply {
+  Code code = 1;
+  string msg = 2;
+  message product {
+    repeated ProductEntity productList = 1;
+    int64 total_page = 2;
+    int64 page = 3;
+    int64 page_size = 4;
+    int64 total = 5;
+  }
+  product data = 3;
+}
+
+
+
+message CreateProductReq {
+  ProductEntity product = 1;
+}
+
+
+
+message CreateProductReply {
+  Code code = 1;
+  string msg = 2;
+  message product{
+    int64 id = 1;
+  }
+  product data = 3;
+}
+
+message UpdateProductReq {
+  int64 id = 1;
+  ProductEntity product = 2;
+}
+
+message UpdateProductReply {
+  Code code = 1;
+  string msg = 2;
+}
+
+message DeleteProductReq {
+  repeated int64 ids = 1 [(validate.rules).repeated.min_items = 1];
+}
+
+message DeleteProductReply {
+  Code code = 1;
+  string msg = 2;
+  message product{
+    repeated int64 ids = 1 ;
+  }
+  product data = 3;
+}
+
+message ListingProductReq {
+  repeated int64 ids = 1 [(validate.rules).repeated.min_items = 1];
+}
+
+message ListingProductReply {
+  Code code = 1;
+  string msg = 2;
+  message product {
+    repeated int64 ids = 1;
+  }
+  product data = 3;
+}
+
+message DeListingProductReq {
+  repeated int64 ids = 1 [(validate.rules).repeated.min_items = 1];
+}
+
+message DeListingProductReply {
+  Code code = 1;
+  string msg = 2;
+  message product {
+    repeated int64 ids = 1;
+  }
+  product data = 3;
+}
