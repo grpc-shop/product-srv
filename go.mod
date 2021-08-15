@@ -1,4 +1,4 @@
-module github.com/wuqinqiang/grpc-shop/product-srv
+module github.com/grpc-shop/product-srv
 
 go 1.15
 

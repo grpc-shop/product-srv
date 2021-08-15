@@ -4,8 +4,8 @@ package handler
 
 import (
 	"github.com/google/wire"
-	"github.com/wuqinqiang/grpc-shop/product-srv/dao"
-	"github.com/wuqinqiang/grpc-shop/product-srv/service"
+	"github.com/grpc-shop/product-srv/dao"
+	"github.com/grpc-shop/product-srv/service"
 	"gorm.io/gorm"
 )
 

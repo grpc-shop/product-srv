@@ -4,7 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/wuqinqiang/grpc-shop/product-srv/proto/product"
+	"github.com/grpc-shop/product-srv/proto/product"
 	"google.golang.org/grpc"
 	"log"
 )

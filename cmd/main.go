@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/wuqinqiang/grpc-shop/product-srv/conf"
-	"github.com/wuqinqiang/grpc-shop/product-srv/handler"
-	"github.com/wuqinqiang/grpc-shop/product-srv/proto/product"
+	"github.com/grpc-shop/product-srv/conf"
+	"github.com/grpc-shop/product-srv/handler"
+	"github.com/grpc-shop/product-srv/proto/product"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"log"

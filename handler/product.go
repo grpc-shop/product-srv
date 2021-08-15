@@ -2,10 +2,10 @@ package handler
 
 import (
 	"context"
-	"github.com/wuqinqiang/grpc-shop/product-srv/model"
-	"github.com/wuqinqiang/grpc-shop/product-srv/param"
-	"github.com/wuqinqiang/grpc-shop/product-srv/proto/product"
-	"github.com/wuqinqiang/grpc-shop/product-srv/service"
+	"github.com/grpc-shop/product-srv/model"
+	"github.com/grpc-shop/product-srv/param"
+	"github.com/grpc-shop/product-srv/proto/product"
+	"github.com/grpc-shop/product-srv/service"
 )
 
 var _ product.ProductServer = (*ProductHandler)(nil)

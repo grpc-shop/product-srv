@@ -8,6 +8,9 @@ proto:
 lint:
 	golangci-lint run
 
+wire:
+	cd handler && wire
+
 .PHONY:server proto
 
 

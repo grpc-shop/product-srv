@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"github.com/wuqinqiang/grpc-shop/product-srv/model"
-	"github.com/wuqinqiang/grpc-shop/product-srv/param"
+	"github.com/grpc-shop/product-srv/model"
+	"github.com/grpc-shop/product-srv/param"
 	"gorm.io/gorm"
 )
 

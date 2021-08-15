@@ -3,9 +3,9 @@ package service
 import (
 	"errors"
 	"fmt"
-	"github.com/wuqinqiang/grpc-shop/product-srv/dao"
-	"github.com/wuqinqiang/grpc-shop/product-srv/model"
-	"github.com/wuqinqiang/grpc-shop/product-srv/param"
+	"github.com/grpc-shop/product-srv/dao"
+	"github.com/grpc-shop/product-srv/model"
+	"github.com/grpc-shop/product-srv/param"
 )
 
 var (

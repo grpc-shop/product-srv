@@ -1,6 +1,6 @@
 package param
 
-import "github.com/wuqinqiang/grpc-shop/product-srv/tool/db"
+import "github.com/grpc-shop/product-srv/tool/db"
 
 type GetListParam struct {
 	StartCreateTime int64
