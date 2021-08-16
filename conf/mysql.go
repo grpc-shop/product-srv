@@ -42,7 +42,9 @@ func (f *DbFile) GetDbConf() (*DbConf, error) {
 		return nil, err
 	}
 
-	var dbConf DbConf
+	var (
+		dbConf DbConf
+	)
 
 	err = json.Unmarshal(byteValue, &dbConf)
 	return &dbConf, err
