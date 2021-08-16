@@ -14,15 +14,8 @@ wire:
 .PHONY:server proto
 
 
-
-###########git############
-
-pull:
-	git push --rebase
-
-checkout:
-	@# echo $x;
-	- git checkout $x;
+cert:
+	cd tool/cert; ./gen.sh; cd ..
 
 
 
